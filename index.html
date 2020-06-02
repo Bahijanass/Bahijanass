@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
+    <title>Covid-19 How bad Is It ? </title>
+    <link href="bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="style/style.css" rel="stylesheet" type="text/css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+</head>    
+    <body>
+        <!--  BEGIN NAVBAR  -->
+        <div class="header-container">
+            <header class="header navbar navbar-expand-sm">
+                <div class="nav-logo align-self-center">
+                </div>
+            </header>
+        </div>
+    
+        <div class="main-container" id="container">
+    
+            <div class="central">
+                <div class="row central">
+                <img src="https://fems-microbiology.org/wp-content/uploads/2020/03/2019-nCoV-CDC-23312_without_background-pubic-domain-270x270.png" style="height:150px;widows: 150px">
+                </div>
+                <div class="row central">
+                    <h3>Covid-19 Cases Around The World</h3>
+                </div>
+            </div> 
+            
+            <div class="row central">
+                    <div class="col-2">
+                            <div id="salut" class="widget-heading rounded shadow-lg">
+                                <div class="row central">
+                                    <h5  class="text-light">Infected</br></h5>
+                                </div>
+                                <div class="row central">
+                                    <p id = 'infected' class="w-value text-light"></p>
+                                </div>          
+                            </div>
+                    </div>
+                    <div class="col-2 ">
+                        <div class="">
+                            <div id="salut2" class="widget-heading rounded shadow-lg">
+                                <div class="row central">
+                                    <h5 class="text-light">Recovered</h5>
+                                </div>
+                                <div class="row central">
+                                    <p id = 'recover' class="w-value text-light"></p>
+                                </div>   
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-2 " >
+                            <div class="widget-heading rounded shadow-lg" id="salut">
+                                <div class="row central">
+                                    <h5 class="text-light">Death</h5>
+                                </div>
+                                <div class="row central">
+                                    <p id = 'death' class="w-value text-light"></p>  
+                                </div> 
+                            </div> 
+                    </div>
+                    <div class="col-2 " >
+                        <div class="widget-heading rounded shadow-lg" id="salut4">
+                            <div class="row central">
+                                <h5 class="text-light">Active Cases</h5>
+                            </div>
+                            <div class="row central">
+                                <p id = 'active' class="w-value text-light"></p>  
+                            </div> 
+                        </div> 
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="row central">
+                        <div class="widget-heading">
+                            <h5>Country Name</h5>
+                        </div>
+                    </div>
+                    <div class="row central">
+                        <div class="col-9">   
+                                <select id = "select" class="form-control basic">
+                                </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="w-chart">
+                        <canvas id="myChart1"></canvas>
+                        <canvas id="myChart6"></canvas>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="w-chart">
+                        <canvas id="myChart2"></canvas>
+                        <canvas id="myChart7"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-5">
+                        <select id = "select2" class="form-control basic">
+                        </select>
+                </div>
+                <div class="col-2">
+                    <select id = "select4" class="form-control basic">
+                        <option></option>
+                        <option value="infected">Infected</option>
+                        <option value="recovered">Recovered</option>
+                        <option value="death">Deaths</option>
+                        <option value="active">Active cases</option>
+                    </select>
+                </div>
+                <div class="col-5">
+                        <select id = "select3" class="form-control basic">
+                        </select>
+                </div>
+            </div>
+            <div class="row">
+                <button class="form-control bg-dark" id="valider">valider</button>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="w-chart" id="container3">
+                        <canvas id="myChart3"></canvas>
+                        <canvas id="myChart8"></canvas>
+                        <canvas id="myChart11"></canvas>
+                        <canvas id="myChart12"></canvas>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="w-chart" id="container4">
+                            <canvas id="myChart4"></canvas>
+                            <canvas id="myChart9"></canvas>
+                            <canvas id="myChart15"></canvas>
+                            <canvas id="myChart14"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <div id="container1" class="w-chart" style="height: 500px" >
+                            <canvas id="myChart5"></canvas>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <table id="zero-config" class="table-wrapper-scroll-y my-custom-scrollbar table table-hover table-striped table-light" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>Country</th>
+                                <th>Confirmed Cases</th>
+                                <th>Death</th>
+                                <th>Recovered</th>
+                                <th>Active Cases</th>
+                            </tr>
+                        </thead>
+                        <tbody id ='tbody'>
+                        </tbody>
+                    </table>
+            </div>
+        </div>
+        <div class="row central">
+            <div class="col-12">
+                    <div id="salut7" class="widget-heading rounded shadow-lg">
+                        <div class="row central">
+                            <h5  class="text-light">prediction</br></h5>
+                        </div>
+                        <div class="row central">
+                            <p class="text-light">after analysing the R0 off: "</p>
+                            <strong><p id = 'country' class="w-value text-light"></p></strong>
+                            <p class="text-light">" we may say that today we gonna get:  "</p>
+                            <strong><p id = 'prediction' class="w-value text-light"></p></strong>
+                            <p class="text-light">" infected.</p>
+                        </div>          
+                    </div>
+            </div>
+        </div>
+        <div class="footer-wrapper">
+            <div class="footer-section f-section-1">
+                <p id="Copyright" class="">Copyright © 2020 <a target="_blank" id="Copyright" href="">Bahij Anass</a>, All rights reserved.</p>
+            </div>
+        </div>
+    <!-- END MAIN CONTAINER -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-database.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyC1wEzd1QP44YcLgqd4rSp-p0PUcE30P_A",
+    authDomain: "covid-19-ac9e0.firebaseapp.com",
+    databaseURL: "https://covid-19-ac9e0.firebaseio.com",
+    projectId: "covid-19-ac9e0",
+    storageBucket: "covid-19-ac9e0.appspot.com",
+    messagingSenderId: "1025705063974",
+    appId: "1:1025705063974:web:d9854078feb5a94656d8e7",
+    measurementId: "G-LB6RCR1RZY"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+    <script src="script/jquery-3.1.1.min.js"></script>
+    <script src="bootstrap/bootstrap.min.js"></script>
+
+    <script src="script/script.js"></script>
+</body>
+
+</html>
